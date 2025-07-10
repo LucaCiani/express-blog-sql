@@ -1,16 +1,10 @@
-const posts = require("../data/postsData");
+const connection = require("../data/postsData.js");
 
 // Funzioni del controller per gestire le operazioni CRUD sui post
 
 // index: Elenco dei post
 function index(req, res) {
-    let filteredPosts = posts;
-    if (req.query.tag) {
-        filteredPosts = posts.filter((post) =>
-            post.tags.includes(req.query.tag)
-        );
-    }
-    res.json(filteredPosts);
+    const sql = "SELECT * FROM posts";
 }
 
 // show: Dettagli di un post specifico
